@@ -10,16 +10,17 @@ struct SYM {
 
 template<typename T, int size>
 class TPQueue {
+
     private:
     int size_;
-    SYM* arr;
+    T* arr;
     int first;
     int last;
     void replace() {
-      SYM* temp = arr;
+      T* temp = arr;
       int tempSize = size_;
       size_ = size_ + (size_ * 0.3);
-      arr = new SYM[size_];
+      arr = new T[size_];
       for (int i = first; i < last; i++) {
         arr[i % size_] = temp[i % tempSize];
       }
@@ -29,7 +30,7 @@ class TPQueue {
     public:
   TPQueue() {
     this->size_ = size;
-    arr = new SYM[size_];
+    arr = new T[size_];
     first = 0;
     last = 0;
   }
@@ -47,7 +48,7 @@ class TPQueue {
     }
     arr[last] = current;
   }
-  SYM& pop() {
+  T& pop() {
     return arr[(first++) % size];
   }
   void print() {
