@@ -4,7 +4,7 @@
 
 template<typename T, int size>
 class TPQueue {
-private:
+  private:
   int size_;
   SYM* arr;
   int first;
@@ -19,7 +19,8 @@ private:
     }
     delete temp;
     }
-public:
+
+  public:
   TPQueue() {
     this->size_ = size;
     arr = new SYM[size_];
