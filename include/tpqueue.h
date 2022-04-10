@@ -1,6 +1,7 @@
 // Copyright 2022 NNTU-CS
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
+#include <iostream>
 
 struct SYM {
   char ch;
@@ -9,7 +10,7 @@ struct SYM {
 
 template<typename T, int size>
 class TPQueue {
-  private:
+    private:
     int size_;
     SYM* arr;
     int first;
@@ -25,7 +26,7 @@ class TPQueue {
       delete temp;
       }
 
-  public:
+    public:
   TPQueue() {
     this->size_ = size;
     arr = new SYM[size_];
