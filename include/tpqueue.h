@@ -10,8 +10,7 @@ struct SYM {
 
 template<typename T, int size>
 class TPQueue {
-
-    private:
+ private:
     int size_;
     T* arr;
     int first;
@@ -27,7 +26,7 @@ class TPQueue {
       delete temp;
       }
 
-    public:
+ public:
   TPQueue() {
     this->size_ = size;
     arr = new T[size_];
