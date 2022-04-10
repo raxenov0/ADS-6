@@ -18,7 +18,7 @@ class TPQueue {
     void replace() {
       T* temp = arr;
       int tempSize = size_;
-      size_ = size_ + 1 + (size_ * 0.5);
+      size_ = size_ + 3 + (size_ * 0.3);
       arr = new T[size_];
       for (int i = first; i < last; i++) {
         arr[i % size_] = temp[i % tempSize];
