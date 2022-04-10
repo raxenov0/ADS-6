@@ -10,20 +10,20 @@ struct SYM {
 template<typename T, int size>
 class TPQueue {
   private:
-  int size_;
-  SYM* arr;
-  int first;
-  int last;
-  void replace() {
-    SYM* temp = arr;
-    int tempSize = size_;
-    size_ = size_ + (size_ * 0.3);
-    arr = new SYM[size_];
-    for (int i = first; i < last; i++) {
-      arr[i % size_] = temp[i % tempSize];
-    }
-    delete temp;
-    }
+    int size_;
+    SYM* arr;
+    int first;
+    int last;
+    void replace() {
+      SYM* temp = arr;
+      int tempSize = size_;
+      size_ = size_ + (size_ * 0.3);
+      arr = new SYM[size_];
+      for (int i = first; i < last; i++) {
+        arr[i % size_] = temp[i % tempSize];
+      }
+      delete temp;
+      }
 
   public:
   TPQueue() {
@@ -51,7 +51,7 @@ class TPQueue {
   }
   void print() {
     for (int i = first; i < last; i++) {
-      cout << arr[i % size_].ch << ' '<< arr[i%size_].prior<< endl;
+      std::cout << arr[i % size_].ch << ' '<< arr[i%size_].prior<< std::endl;
     }
   }
   ~TPQueue() {
