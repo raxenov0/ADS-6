@@ -47,7 +47,7 @@ class TPQueue {
     }
     arr[last] = current;
   }
-  T pop() {
+  T& pop() {
     return arr[(first++) % size_];
   }
   void print() {
