@@ -33,8 +33,7 @@ class TPQueue {
         return;
       }
     }
-    last++;
-    arr[last % size] = current;
+    arr[last++ % size] = current;
   }
   T& pop() {
     return arr[(first++) % size];
