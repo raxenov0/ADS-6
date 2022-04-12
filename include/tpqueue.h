@@ -11,53 +11,37 @@ struct SYM {
 template<typename T, int size>
 class TPQueue {
  private:
-    int size_;
-    T* arr;
     int first;
     int last;
-    void replace() {
-      T* temp = arr;
-      int tempSize = size_;
-      size_ = size_ + 10;
-      arr = new T[size_];
-      for (int i = first; i < last; i++) {
-        arr[i % size_] = temp[i % tempSize];
-      }
-      delete temp;
-      }
+    T arr[size];
 
  public:
   TPQueue() {
-    this->size_ = size;
-    arr = new T[size_];
     first = 0;
     last = 0;
   }
   void push(T current) {
-    if (last - first >= size_) replace();
+    if (last - first >= size) throw std::string ("Full");
     for (int i = first; i < last; i++) {
-      if (current.prior > arr[i % size_].prior) {
+      if (current.prior > arr[i % size].prior) {
         for (int j = last-1; j >= i; j--) {
-          arr[(j + 1) % size_] = arr[j % size_];
+          arr[(j + 1) % size] = arr[j % size];
         }
         last++;
-        arr[i % size_] = current;
+        arr[i % size] = current;
         return;
       }
     }
     last++;
-    arr[last % size_] = current;
+    arr[last % size] = current;
   }
   T& pop() {
-    return arr[(first++) % size_];
+    return arr[(first++) % size];
   }
   void print() {
     for (int i = first; i < last; i++) {
-      std::cout << arr[i % size_].ch << ' '<< arr[i%size_].prior<< std::endl;
+      std::cout << arr[i % size].ch << ' '<< arr[i%size].prior<< std::endl;
     }
-  }
-  ~TPQueue() {
-    delete[] arr;
   }
 };
 
