@@ -34,17 +34,18 @@ class TPQueue {
     last = 0;
   }
   void push(T current) {
-    last++;
     if (last - first >= size_) replace();
     for (int i = first; i < last; i++) {
       if (current.prior > arr[i % size_].prior) {
         for (int j = last-1; j >= i; j--) {
           arr[(j + 1) % size_] = arr[j % size_];
         }
+        last++;
         arr[i % size_] = current;
         return;
       }
     }
+    last++;
     arr[last % size_] = current;
   }
   T& pop() {
