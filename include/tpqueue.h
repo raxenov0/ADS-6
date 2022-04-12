@@ -28,7 +28,7 @@ class TPQueue {
 
  public:
   TPQueue() {
-    this->size_ = size + 1;
+    this->size_ = size;
     arr = new T[size_];
     first = 0;
     last = 0;
@@ -41,11 +41,11 @@ class TPQueue {
         for (int j = last-1; j >= i; j--) {
           arr[(j + 1) % size_] = arr[j % size_];
         }
-        arr[i] = current;
+        arr[i % size_] = current;
         return;
       }
     }
-    arr[last] = current;
+    arr[last % size_] = current;
   }
   T& pop() {
     return arr[(first++) % size_];
