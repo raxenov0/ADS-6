@@ -35,7 +35,7 @@ class TPQueue {
   }
   void push(T current) {
     last++;
-    if ((first % size_) == (last % size_)) replace();
+    if (last - first >= size_) replace();
     for (int i = first; i < last; i++) {
       if (current.prior > arr[i % size_].prior) {
         for (int j = last-1; j >= i; j--) {
