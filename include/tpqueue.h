@@ -14,14 +14,12 @@ class TPQueue {
  private:
     int first;
     int last;
-    int size_;
-    T arr[size_];
+    T arr[20];
 
  public:
   TPQueue() {
     first = 0;
     last = 0;
-    size_ = size;
   }
   void push(T current) {
     if (last - first >= size) throw std::string ("Full");
