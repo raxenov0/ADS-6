@@ -2,6 +2,7 @@
 #ifndef INCLUDE_TPQUEUE_H_
 #define INCLUDE_TPQUEUE_H_
 #include <iostream>
+#include <string>
 
 struct SYM {
   char ch;
@@ -13,12 +14,14 @@ class TPQueue {
  private:
     int first;
     int last;
-    T arr[size];
+    int size_;
+    T arr[size_];
 
  public:
   TPQueue() {
     first = 0;
     last = 0;
+    size_ = size;
   }
   void push(T current) {
     if (last - first >= size) throw std::string ("Full");
