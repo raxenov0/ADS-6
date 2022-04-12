@@ -28,7 +28,7 @@ class TPQueue {
 
  public:
   TPQueue() {
-    this->size_ = size+1;
+    this->size_ = size + 1;
     arr = new T[size_];
     first = 0;
     last = 0;
